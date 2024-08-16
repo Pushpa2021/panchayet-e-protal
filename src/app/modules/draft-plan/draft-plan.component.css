@@ -1,0 +1,16 @@
+.modal {
+  z-index: 1055 !important; /* or a higher value if needed */
+}
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity */
+  z-index: 1040 !important; /* Adjust z-index */
+}
+.modal-dialog {
+  margin: 1.75rem auto;
+}
+.modal-content {
+  position: relative;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .3rem;
+}
