@@ -1,0 +1,218 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Approve Plan</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Approve Plan</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content">
+  <div class="container-fluid">
+    <!-- First Card: Search Section -->
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Search Plan</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Plan Financial Year*</label>
+              <select class="form-control">
+                <option>Select Financial Year</option>
+                <option>2023-2024</option>
+                <option>2024-2025</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Plan Type*</label>
+              <select class="form-control">
+                <option>Select Approved Plan</option>
+                <option>Main Plan</option>
+                <!-- Add options here -->
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Activity Name</label>
+              <select class="form-control">
+                <option>Select Activity of the Approved Plan</option>
+                <option>Plan A</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <button class="btn btn-primary" (click)="onSearch()">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Card: Activity Details Section (Visible after Search) -->
+    <div *ngIf="showDetails">
+      <!-- <div class="card card-secondary">
+        <div class="card-header">
+          <h3 class="card-title">Activity Details</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Activity Id</label>
+                <input type="text" class="form-control" [value]="dummyData.activityId" readonly>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Activity Name</label>
+                <input type="text" class="form-control" [value]="dummyData.activityName" readonly>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Estimated Cost</label>
+                <input type="text" class="form-control" [value]="dummyData.estimatedCost" readonly>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Scheme Is</label>
+                <input type="text" class="form-control" [value]="dummyData.schemeIs" readonly>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Allocation Amount</label>
+                <input type="text" class="form-control" [value]="dummyData.allocationAmount" readonly>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Focus Area</label>
+                <input type="text" class="form-control" [value]="dummyData.focusArea" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Table Section -->
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">Activity Summary</h3>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Activity Id</th>
+                  <th>Activity Name</th>
+                  <th>Estimated Cost</th>
+                  <th>Scheme Is</th>
+                  <th>Allocation Amount</th>
+                  <th>Focus Area</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{dummyData.activityId}}</td>
+                  <td>{{dummyData.activityName}}</td>
+                  <td>{{dummyData.estimatedCost}}</td>
+                  <td>{{dummyData.schemeIs}}</td>
+                  <td>{{dummyData.allocationAmount}}</td>
+                  <td>{{dummyData.focusArea}}</td>
+                </tr>
+                <!-- Add more rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Card: Sanction Details Section -->
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">Sanction Details</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Technical Sanction Received Date*</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Technical Sanctioned Amount*</label>
+                <input type="text" class="form-control" placeholder="Technical Sanction Amount">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>DPR Prepared*</label>
+                <select class="form-control">
+                  <option>Select Item</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                  <!-- Add options here -->
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>DPR Amount*</label>
+                <input type="text" class="form-control" placeholder="Amount in DPR">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>DPR Preparation Date*</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Technical Sanctioned Document*</label>
+                <input type="file" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Administrative Sanction Received Date*</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Administrative Sanctioned Amount*</label>
+                <input type="text" class="form-control" placeholder="Administrative Sanction Amount">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Administrative Sanction Document*</label>
+                <input type="file" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

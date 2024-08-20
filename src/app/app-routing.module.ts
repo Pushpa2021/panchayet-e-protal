@@ -72,6 +72,8 @@ const routes: Routes = [
       { path: 'enhanced-search', loadChildren: () => import('./modules/common/search/enhanced-search/enhanced-search.module').then(m => m.EnhancedSearchModule) },
       { path: 'scheme', loadChildren: () => import('./modules/scheme/scheme.module').then(m => m.SchemeModule) },
       { path: 'draft-plan', loadChildren: () => import('./modules/draft-plan/draft-plan.module').then(m => m.DraftPlanModule) },
+      { path: 'approve', loadChildren: () => import('./modules/approve/approve.module').then(m => m.ApproveModule) },
+      { path: 'vendor', loadChildren: () => import('./modules/vendor-registration/vendor-registration.module').then(m => m.VendorRegistrationModule) },
     ]
   },
   {
@@ -105,7 +107,6 @@ const routes: Routes = [
       title: 'Reset Password Page'
     }
   },
-
 
   {path: '**', redirectTo: 'dashboard'}
 ];

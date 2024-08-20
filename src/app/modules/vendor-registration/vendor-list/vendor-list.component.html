@@ -1,0 +1,93 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Vendor List</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Vendor List</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main content -->
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header bg-gradient-info">
+        <h3 class="card-title ">Vendors</h3>
+      </div>
+      <div class="card-body">
+        <div class="card-body table-responsive p-0">
+          <table #dataTable *ngIf="vendors.length > 0" class="table table-bordered table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>GSTIN</th>
+                <th>Vendor Name</th>
+                <th>Owner Name</th>
+                <th>Mobile</th>
+                <th>District</th>
+                <th>Town</th>
+                <th>Bank Details</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let vendor of vendors">
+                <td>{{ vendor.id }}</td>
+                <td>{{ vendor.gstin }}</td>
+                <td>{{ vendor.vendorName }}</td>
+                <td>{{ vendor.ownerName }}</td>
+                <td>{{ vendor.mobile }}</td>
+                <td>{{ vendor.homeDistrict }} / {{ vendor.workDistrict }}</td>
+                <td>{{ vendor.town }}</td>
+                <td>{{ vendor.bankDetails }} ({{ vendor.ifsc }})</td>
+                <td>
+                  <button class="btn btn-primary"
+                    (click)="openDetailsModal(vendor, vendorDetailsModal)">Details</button>
+                  <button class="btn btn-success" (click)="approveVendor(vendor)">
+                    {{ vendor.approved ? 'Approved' : 'Approve' }}
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Vendor Details Modal -->
+<ng-template #vendorDetailsModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Vendor Details</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>GSTIN:</strong> {{ selectedVendor?.gstin }}</li>
+      <li class="list-group-item"><strong>Vendor Name:</strong> {{ selectedVendor?.vendorName }}</li>
+      <li class="list-group-item"><strong>Owner Name:</strong> {{ selectedVendor?.ownerName }}</li>
+      <li class="list-group-item"><strong>Mobile:</strong> {{ selectedVendor?.mobile }}</li>
+      <li class="list-group-item"><strong>Home District:</strong> {{ selectedVendor?.homeDistrict }}</li>
+      <li class="list-group-item"><strong>Work District:</strong> {{ selectedVendor?.workDistrict }}</li>
+      <li class="list-group-item"><strong>Town:</strong> {{ selectedVendor?.town }}</li>
+      <li class="list-group-item"><strong>Address:</strong> {{ selectedVendor?.address }}</li>
+      <li class="list-group-item"><strong>IFSC:</strong> {{ selectedVendor?.ifsc }}</li>
+      <li class="list-group-item"><strong>Bank Details:</strong> {{ selectedVendor?.bankDetails }}</li>
+      <li class="list-group-item"><strong>Account Number:</strong> {{ selectedVendor?.accountNumber }}</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

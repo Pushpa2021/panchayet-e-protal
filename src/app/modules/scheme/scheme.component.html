@@ -120,16 +120,16 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Scheme Is*</label>
-                    <div class="form-check">
+                    <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" id="freshScheme"
                         [(ngModel)]="scheme.isFreshScheme">
                       <label class="form-check-label" for="freshScheme">Fresh Scheme</label>
                     </div>
-                    <div class="form-check">
+                    <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" id="onGoing" [(ngModel)]="scheme.isOnGoing">
                       <label class="form-check-label" for="onGoing">On Going</label>
                     </div>
-                    <div class="form-check">
+                    <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" id="close" [(ngModel)]="scheme.isClose">
                       <label class="form-check-label" for="close">Close</label>
                     </div>
@@ -179,35 +179,35 @@
               </div>
               <!-- Expected Beneficiaries -->
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                   <div class="form-group">
                     <label for="gen">GEN:</label>
                     <input type="number" class="form-control" id="gen" [(ngModel)]="scheme.expectedBeneficiaries.gen"
                       name="gen" (ngModelChange)="calculateTotalBeneficiaries()">
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                   <div class="form-group">
                     <label for="sc">SC:</label>
                     <input type="number" class="form-control" id="sc" [(ngModel)]="scheme.expectedBeneficiaries.sc"
                       name="sc" (ngModelChange)="calculateTotalBeneficiaries()">
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                   <div class="form-group">
                     <label for="st">ST:</label>
                     <input type="number" class="form-control" id="st" [(ngModel)]="scheme.expectedBeneficiaries.st"
                       name="st" (ngModelChange)="calculateTotalBeneficiaries()">
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                   <div class="form-group">
                     <label for="obc">OBC:</label>
                     <input type="number" class="form-control" id="obc" [(ngModel)]="scheme.expectedBeneficiaries.obc"
                       name="obc" (ngModelChange)="calculateTotalBeneficiaries()">
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label for="totalBeneficiaries">TOTAL:</label>
                     <input type="number" class="form-control" id="totalBeneficiaries"
@@ -310,7 +310,7 @@
                       </div>
                     </div>
                   </div>
-
+                </div>
               </div>
               <div class="row" *ngIf="scheme.isAsset">
                 <!-- Asset Type -->
@@ -436,15 +436,15 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Submit Button -->
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
           </div>
-          <!-- Submit Button -->
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-          </form>
         </div>
       </div>
     </div>
-  </div>
-</div><!-- /.container-fluid -->
+  </div><!-- /.container-fluid -->
 </div><!-- /.content -->
